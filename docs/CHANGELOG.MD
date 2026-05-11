@@ -6,6 +6,32 @@ For semantic versioned releases, prefix with `## v0.X.0 — YYYY-MM-DD`.
 
 ---
 
+## 2026-05-11 — Homepage v3 + Encoder app mention
+
+Full homepage revamp, studio-led pitch, dark hardware aesthetic. New section components under `components/home/*`, R3F scenes under `components/three/*`, shadcn-style primitives under `components/ui/*`.
+
+- Direction confirmed: **studio-led, platform secondary**. Homepage is now 12 sections ending in a quote-dialog CTA.
+- Replaced SaaS-first hero with studio pitch: *"The business card is dead. Replace it with a tap."*
+- Added R3F hero scene (floating NFC keychain + pulse rings + grid lattice) and per-product mini-scenes for keychain / card / lanyard / badge
+- Added scroll-driven sticky Process section with crossfading visuals through brief → design → print → encode → ship
+- Added full-bleed manifesto with letter-by-letter mega-serif reveal ("Conversion, reimagined.")
+- Added marquee divider with scrolling editorial phrases
+- Added Results section with count-up stats on scroll
+- Added FAQ as Radix accordion (six studio-relevant questions)
+- Quote dialog: Radix Dialog + react-hook-form + zod; currently fakes the submit, needs wiring to `/api/quote` → Brevo
+- Refreshed Nav: studio-led order (Showcase / Customise / Solutions / Process / Platform), mobile drawer, scroll-intensified blur
+- **TapCraft Encoder app introduced** in two places on the homepage (Process > Encode step + Platform teaser) — see new entry in `CLAUDE.md` under "What lives elsewhere"
+
+Stack added: framer-motion 12, three + R3F 9 + drei 10, lucide-react, Radix dialog/accordion/tabs/slot, react-hook-form, zod, clsx, tailwind-merge, class-variance-authority.
+
+Known gaps:
+- Quote form `onSubmit` is a stub
+- Other routes still show old SaaS-led content
+- `/process`, `/solutions/{real-estate,hospitality,agencies}`, `/about` referenced in Nav but unbuilt
+- Client names, case-study metrics, ticker stats are placeholders
+
+---
+
 ## 2026-04-29 — Direction reset: marketing site only
 
 Significant scope reduction. Documented the new direction across all `.md` files.

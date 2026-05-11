@@ -18,7 +18,8 @@ Read at the start of every Claude Code session. Keep tight, current, honest.
 
 ## What lives elsewhere
 
-- **TapCraft Platform (SaaS)** — separate repo, separate project. Don't reference it here. Don't build hooks for it.
+- **TapCraft Platform (SaaS)** — separate repo, separate project. The website can *teaser* it (one section + `/platform`, `/pricing` routes), but no live data, no hooks, no shared state.
+- **TapCraft Encoder app** — separate repo, separate project. An in-house mobile/desktop app for batch-programming NFC chips, built because NFC Tools is too fiddly for studio work. Internal-first; may open up to platform customers later. The website can mention it as proof-of-craft and as part of the platform pitch, but the app itself is not built here.
 - **Order management, invoicing, fulfilment** — handled offline / in spreadsheets / in whatever ops tooling exists outside this repo.
 
 The website's only job is: get a qualified B2B lead into Sam or Nikhil's inbox.

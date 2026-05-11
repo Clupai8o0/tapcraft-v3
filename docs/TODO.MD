@@ -175,6 +175,21 @@ Doesn't depend on shipping the site.
 
 Parking lot. Not now, maybe later.
 
+### TapCraft Encoder app (separate repo / project)
+
+Planned in-house app for NFC batch programming. NFC Tools works but is too fiddly for studio-volume work (one chip at a time, no audit log, no per-tag URL templating). Build something purpose-built.
+
+This is **not** part of the website repo — it gets its own project. Listed here so the dependency is visible while the website teasers it.
+
+- [ ] Decide form factor: mobile-only (Android/iOS), desktop (Tauri / Electron), or both. Mobile-first leans likely — phones already have NFC radios.
+- [ ] Core features for v1: batch URL templating (per-tag short links from a CSV), batch encode + verify, audit log export, NTAG213/215/216 support
+- [ ] Decide whether v1 is internal-only or also goes to platform customers
+- [ ] Naming: tentatively *TapCraft Encoder*
+- [ ] Repo + scaffolding
+- [ ] Reach feature parity with NFC Tools for the operations we actually use, then move beyond
+
+### Other
+
 - Customer reviews on showcase items (Google Reviews integration)
 - Save-design feature with email recovery (no full account)
 - Live chat on `/customise` (Crisp at launch, Intercom Fin at 200+ conversations/mo)
