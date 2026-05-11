@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Menu, X } from 'lucide-react';
@@ -39,8 +40,15 @@ export default function Nav() {
     >
       <div className="wrap nav-inner">
         <Link className="brand" href="/" aria-label="TapCraft home">
-          <span className="brand-mark" />
-          <span>TapCraft</span>
+          <Image
+            src="/logo/tapcraft-wordmark-dark.png"
+            alt="TapCraft Studio"
+            width={420}
+            height={130}
+            className="brand-wordmark"
+            style={{ height: 34, width: 'auto' }}
+            priority
+          />
         </Link>
 
         <nav className="nav-links" aria-label="Primary">

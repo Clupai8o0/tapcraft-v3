@@ -26,7 +26,7 @@ function Keychain() {
         {/* keychain body */}
         <RoundedBox args={[2.2, 1.4, 0.28]} radius={0.18} smoothness={6} castShadow receiveShadow>
           <meshPhysicalMaterial
-            color="#1a1714"
+            color="#141418"
             metalness={0.4}
             roughness={0.32}
             clearcoat={0.6}
@@ -38,7 +38,7 @@ function Keychain() {
         <mesh position={[0, 0, 0.145]}>
           <planeGeometry args={[2.0, 1.22]} />
           <meshStandardMaterial
-            color="#0f0d0b"
+            color="#0A0A0C"
             metalness={0.1}
             roughness={0.85}
           />
@@ -65,7 +65,7 @@ function Keychain() {
         <Text
           position={[0.28, 0.18, 0.16]}
           fontSize={0.22}
-          color="#F2EDE3"
+          color="#F5F5F7"
           anchorX="left"
           anchorY="middle"
           letterSpacing={-0.02}
@@ -75,7 +75,7 @@ function Keychain() {
         <Text
           position={[0.28, -0.12, 0.16]}
           fontSize={0.085}
-          color="#7A7369"
+          color="#75757F"
           anchorX="left"
           anchorY="middle"
           letterSpacing={0.04}
@@ -145,7 +145,7 @@ function Particles() {
       {dots.map((p, i) => (
         <mesh key={i} position={p}>
           <sphereGeometry args={[0.015, 8, 8]} />
-          <meshBasicMaterial color="#F2EDE3" transparent opacity={0.35} />
+          <meshBasicMaterial color="#F5F5F7" transparent opacity={0.35} />
         </mesh>
       ))}
     </group>

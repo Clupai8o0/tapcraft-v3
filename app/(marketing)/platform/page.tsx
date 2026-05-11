@@ -80,11 +80,11 @@ export default function PlatformPage() {
                 <div className="right-h">/ #ORD-4012 · job 03</div>
                 <div className="three-d-prev">
                   <svg viewBox="0 0 200 140">
-                    <rect x="20" y="20" width="160" height="100" rx="14" fill="#1a1714" />
-                    <rect x="36" y="38" width="22" height="22" rx="4" fill="oklch(0.62 0.18 255)" />
-                    <text x="76" y="56" fontFamily="Manrope, sans-serif" fontWeight="700" fontSize="13" fill="#F2EDE3">aimee.</text>
-                    <text x="76" y="72" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="#b8b0a3">tap → portfolio</text>
-                    <g transform="translate(40 88)" stroke="#F2EDE3" strokeWidth="1" fill="none" opacity="0.85">
+                    <rect x="20" y="20" width="160" height="100" rx="14" fill="#141418" />
+                    <rect x="36" y="38" width="22" height="22" rx="4" fill="oklch(0.66 0.20 250)" />
+                    <text x="76" y="56" fontFamily="Manrope, sans-serif" fontWeight="700" fontSize="13" fill="#F5F5F7">aimee.</text>
+                    <text x="76" y="72" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="#B8B8C0">tap → portfolio</text>
+                    <g transform="translate(40 88)" stroke="#F5F5F7" strokeWidth="1" fill="none" opacity="0.85">
                       <path d="M0 8 Q 8 0 16 8" />
                       <path d="M-4 12 Q 8 -4 20 12" />
                     </g>

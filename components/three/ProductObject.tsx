@@ -34,7 +34,7 @@ function Body({ variant, accent = '#3b82f6' }: ProductObjectProps) {
       <Float speed={1.4} rotationIntensity={0.15} floatIntensity={0.4}>
         <RoundedBox args={[w, h, d]} radius={r} smoothness={5} castShadow>
           <meshPhysicalMaterial
-            color="#1a1714"
+            color="#141418"
             metalness={0.35}
             roughness={0.38}
             clearcoat={0.5}

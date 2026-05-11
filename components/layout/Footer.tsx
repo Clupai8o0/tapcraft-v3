@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -6,14 +7,20 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <Link className="brand" href="/" style={{ color: 'var(--bg)' }}>
-              <span className="brand-mark" style={{ background: 'var(--bg)', color: 'var(--ink)' }} />
+            <Link className="brand" href="/" style={{ color: 'var(--ink)' }}>
+              <Image
+                src="/logo/tapcraft-icon.png"
+                alt=""
+                width={28}
+                height={28}
+                className="brand-mark"
+              />
               <span>TapCraft</span>
             </Link>
-            <p style={{ marginTop: '14px', color: '#b8b0a3', fontSize: '13.5px', maxWidth: '34ch', lineHeight: '1.55' }}>
+            <p style={{ marginTop: '14px', color: 'var(--ink-2)', fontSize: '13.5px', maxWidth: '34ch', lineHeight: '1.55' }}>
               The operating system for 3D-printed NFC products. Built in Naarm/Melbourne.
             </p>
-            <div className="mono" style={{ marginTop: '24px', color: '#b8b0a3' }}>
+            <div className="mono" style={{ marginTop: '24px', color: 'var(--ink-2)' }}>
               <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--positive)', marginRight: '8px', verticalAlign: 'middle' }} />
               All systems operational
             </div>

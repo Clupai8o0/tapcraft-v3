@@ -31,18 +31,27 @@ That's the pitch. Not "we do custom merchandise". Not "premium business cards". 
 
 ### Colour palette
 
-> ⚠️ The brand guidelines call the primary "TapCraft Blue" but `#581E73` is purple. Confirm with Nikhil whether the colour or the name is canonical before scaling brand assets.
+Derived from the wordmark logo: cold black surface, cyan-to-blue gradient ink. No warm browns, no purple.
 
-| Token | Hex | Usage |
+| Token | Value | Usage |
 |---|---|---|
-| `--brand-primary` | `#581E73` | Primary CTAs, accents, highlights |
-| `--brand-black` | `#000000` | "Tap" in logo, headings, body |
-| `--brand-white` | `#FFFFFF` | Backgrounds, negative space |
-| `--gray-100` | `#E5E5E5` | Borders, dividers |
-| `--gray-500` | `#999999` | Secondary text |
-| `--gray-700` | `#666666` | Tertiary text |
+| `--bg` | `#0A0A0C` | Page background (cold black) |
+| `--bg-2` | `#111114` | Elevated surface |
+| `--bg-3` | `#18181D` | Higher elevation |
+| `--paper` | `#141418` | Card surface |
+| `--ink` | `#F5F5F7` | Primary text (cold white) |
+| `--ink-2` | `#B8B8C0` | Secondary text |
+| `--muted` | `#75757F` | Tertiary text |
+| `--muted-2` | `#3D3D45` | Hairline / disabled |
+| `--accent` | `oklch(0.66 0.20 250)` | Vivid blue from "Craft" — CTAs, highlights |
+| `--accent-ink` | `oklch(0.85 0.13 235)` | Light cyan — italic display, soft emphasis |
+| `--accent-soft` | `oklch(0.22 0.08 250)` | Deep blue tint — glows, badge backgrounds |
 
-Define under `@theme` in `app/globals.css`. Never hardcode hex in components.
+Defined under `@theme` in `app/globals.css`. Never hardcode hex in components — reference tokens.
+
+### Eyebrow / chip / ticker rule
+
+**No decorative blue dot.** Eyebrows, chips, and the trust-bar ticker are text-only. The `.dot` span is hidden via CSS (`display: none`) so existing markup keeps working, but new components shouldn't add it. Status indicators with inline-styled coloured dots (positive/warn) are fine — they're semantic, not decorative.
 
 ### Typography
 
@@ -63,8 +72,14 @@ Define under `@theme` in `app/globals.css`. Never hardcode hex in components.
 
 ### Logo
 
-Custom script "TapCraft" + "STUDIO" subtext. Black "Tap" + brand-primary "Craft". Inspired by NFC signal waves and 3D-print layer lines.
+Custom script "TapCraft" + "STUDIO" subtext. Black "Tap" + blue-gradient "Craft" (cyan ~`#7DD3FC` → vivid blue ~`#2680FF`). Inspired by NFC signal waves and 3D-print layer lines.
 
+Files live in `public/logo/`:
+- `tapcraft-icon.png` — TC monogram, rounded square, for favicons/avatars/compact spots
+- `tapcraft-wordmark-dark.png` — wordmark for dark backgrounds (used in Nav)
+- `tapcraft-wordmark-light.png` — wordmark for light backgrounds
+
+Rules:
 - Minimum size: 50px digital, 18mm print
 - Clear space: height of the "T" in TapCraft, all sides
 - Never recolour, stretch, or add a drop-shadow

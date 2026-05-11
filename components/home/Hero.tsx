@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroScene = dynamic(() => import('@/components/three/HeroScene'), {
@@ -28,22 +28,6 @@ export default function Hero() {
 
       <div className="wrap hero-grid relative">
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="hero-meta"
-          >
-            <span className="eyebrow">
-              <span className="dot" />
-              TapCraft Studio · Naarm / Melbourne
-            </span>
-            <span className="chip">
-              <Sparkles className="h-3 w-3" />
-              <span>v3 just shipped</span>
-            </span>
-          </motion.div>
-
           <h1 className="display balance" aria-label="The business card is dead. Replace it with a tap.">
             <span aria-hidden className="inline-block">
               {heroChars.map((c, i) => (
@@ -111,9 +95,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 1.2 }}
             className="hero-bullets"
           >
-            <li><span className="check">✓</span> 7-day turnaround</li>
-            <li><span className="check">✓</span> Free design review</li>
-            <li><span className="check">✓</span> Ships across AU + NZ</li>
+            <li><span className="tick">✓</span> 7-day turnaround</li>
+            <li><span className="tick">✓</span> Free design review</li>
+            <li><span className="tick">✓</span> Ships across AU + NZ</li>
           </motion.ul>
         </div>
 

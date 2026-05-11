@@ -20,7 +20,7 @@ const PRODUCTS: { variant: Variant; name: string; sub: string; copy: string; fro
     sub: 'The flagship',
     copy: 'Weighty, matte, branded. Lives on a lanyard, a keyring, a backpack zip — anywhere a customer will see it twice.',
     from: 'From AUD $4.80 / unit at 500+',
-    accent: 'oklch(0.62 0.18 255)',
+    accent: 'oklch(0.66 0.20 250)',
   },
   {
     variant: 'card',

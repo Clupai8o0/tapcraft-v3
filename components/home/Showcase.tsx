@@ -15,7 +15,7 @@ const CASES = [
     metric: '+118%',
     metricLabel: 'agent-attributed follow-ups',
     tags: ['Real estate', 'Keychain', 'Lead capture'],
-    accent: 'oklch(0.62 0.18 255)',
+    accent: 'oklch(0.66 0.20 250)',
   },
   {
     slug: 'cup-week-lanyards',
