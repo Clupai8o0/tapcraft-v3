@@ -33,7 +33,7 @@ export default function Results() {
     <section className="section spotlight">
       <div className="wrap">
         <div className="max-w-3xl">
-          <span className="eyebrow"><span className="dot" />Numbers, not noise</span>
+          <span className="eyebrow">Numbers, not noise</span>
           <h2 className="h1 balance" style={{ marginTop: 14 }}>
             Every tag <em className="serif-em">reports back.</em>
           </h2>

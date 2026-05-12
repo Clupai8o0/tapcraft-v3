@@ -1,27 +1,32 @@
 import Link from 'next/link';
+import PageHero from '@/components/shared/PageHero';
+import Reveal from '@/components/shared/Reveal';
 
 export const metadata = {
-  title: 'Pricing — TapCraft',
-  description: 'Flat platform fee. No per-transaction takes. Scale on shops, printers, orders, and channels.',
+  title: 'Platform pricing — TapCraft',
+  description: 'Pricing for the TapCraft Platform — the SaaS that runs your store, printers, NFC encoder, and order queue. Flat fee, no per-transaction takes.',
+  alternates: { canonical: '/platform/pricing' },
 };
 
 export default function PricingPage() {
   return (
     <>
-      <section className="pricing-hero">
-        <div className="wrap">
-          <span className="eyebrow"><span className="dot" />Pricing</span>
-          <h1 className="display"><em>Honest pricing.</em><br />Built for studios.</h1>
-          <p className="lede">Flat platform fee. No per-transaction takes. Scale on shops, printers, orders, and channels — never on the size of your wallet.</p>
-          <div className="toggle">
-            <button className="active">Monthly</button>
-            <button>Annual <span className="save">SAVE 20%</span></button>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Platform · Pricing"
+        heading="Honest pricing."
+        emphasis={<>Built <em className="serif-em">for studios.</em></>}
+        lede="This is pricing for the TapCraft Platform — the SaaS that runs your store, your printers, your NFC encoder, and your order queue. Custom-run quotes (3D-printing, NFC encoding from our studio) are separate — get one at /customise."
+      />
 
       <section style={{ padding: '0 0 64px' }}>
         <div className="wrap">
+          <Reveal>
+            <div className="toggle" style={{ marginBottom: 32 }}>
+              <button className="active">Monthly</button>
+              <button>Annual <span className="save">SAVE 20%</span></button>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
           <div className="tiers">
             <div className="tier">
               <div className="name">Solo</div>
@@ -79,6 +84,9 @@ export default function PricingPage() {
             </div>
           </div>
 
+          </Reveal>
+
+          <Reveal>
           <div style={{ marginTop: '24px', textAlign: 'center' }}>
             <div className="card" style={{ maxWidth: '720px', margin: '0 auto', display: 'flex', gap: '24px', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
               <div style={{ textAlign: 'left' }}>
@@ -90,7 +98,10 @@ export default function PricingPage() {
             </div>
           </div>
 
+          </Reveal>
+
           {/* COMPARISON TABLE */}
+          <Reveal>
           <div className="compare">
             <table>
               <thead>
@@ -123,10 +134,13 @@ export default function PricingPage() {
             </table>
           </div>
 
+          </Reveal>
+
           {/* FAQ */}
+          <Reveal>
           <div className="faq-pricing">
             <div>
-              <span className="eyebrow"><span className="dot" />Pricing FAQ</span>
+              <span className="eyebrow">Pricing FAQ</span>
               <h2 className="h2" style={{ marginTop: '14px' }}>The questions that come up before signing up.</h2>
             </div>
             <div className="faq" style={{ marginTop: 0 }}>
@@ -152,17 +166,20 @@ export default function PricingPage() {
               </details>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section" style={{ textAlign: 'center' }}>
         <div className="wrap">
+          <Reveal>
           <h2 className="display" style={{ maxWidth: '18ch', margin: '0 auto' }}><em>Try it</em> for 14 days.</h2>
           <p className="lede" style={{ margin: '24px auto 36px' }}>No card. Cancel anytime. Your data exports as CSV the moment you ask.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link className="btn btn--primary btn--lg" href="/signup">Start free trial <span className="arrow">→</span></Link>
             <Link className="btn btn--ghost btn--lg" href="/demo">Book a demo</Link>
           </div>
+          </Reveal>
         </div>
       </section>
     </>

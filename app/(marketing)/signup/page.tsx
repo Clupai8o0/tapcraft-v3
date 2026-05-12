@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Reveal from '@/components/shared/Reveal';
 
 export const metadata = {
   title: 'Start your trial — TapCraft',
@@ -9,6 +10,7 @@ export default function SignupPage() {
   return (
     <div className="signup-wrap">
       <div className="signup-form-side">
+        <Reveal>
         <div className="signup-form-inner">
           <h1>Start your 14-day trial</h1>
           <p className="sub">No card. No phone calls. Cancel any time.</p>
@@ -37,11 +39,13 @@ export default function SignupPage() {
             Already have an account? <Link href="#" style={{ color: 'var(--ink)', textDecoration: 'underline' }}>Sign in</Link>
           </div>
         </div>
+        </Reveal>
       </div>
 
+      <Reveal delay={0.15}>
       <div className="signup-aside-side">
         <div>
-          <span className="eyebrow" style={{ color: 'var(--muted)' }}><span className="dot" />Currently active</span>
+          <span className="eyebrow" style={{ color: 'var(--muted)' }}>Currently active</span>
           <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px', fontFamily: 'var(--font-mono)', fontSize: '12.5px', color: 'var(--ink-2)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>↳ Northbound shipped</span><span style={{ color: 'var(--accent-ink)' }}>240 keychains</span></div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>↳ Hatch &amp; Co. encoded</span><span style={{ color: 'var(--accent-ink)' }}>1,200 lanyards</span></div>
@@ -67,6 +71,7 @@ export default function SignupPage() {
           <div><div className="n">68%</div><div className="l">faster turnaround</div></div>
         </div>
       </div>
+      </Reveal>
     </div>
   );
 }

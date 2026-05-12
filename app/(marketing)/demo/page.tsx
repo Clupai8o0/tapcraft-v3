@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Reveal from '@/components/shared/Reveal';
+import AnimatedHeading from '@/components/shared/AnimatedHeading';
 
 export const metadata = {
   title: 'Book a demo — TapCraft',
@@ -7,12 +9,13 @@ export const metadata = {
 
 export default function DemoPage() {
   return (
-    <section>
+    <section className="section--hero">
       <div className="wrap demo-wrap">
+        <Reveal>
         <div className="demo-left">
-          <span className="eyebrow"><span className="dot" />Book a demo</span>
-          <h1 className="display" style={{ marginTop: '18px' }}>25 minutes. <em>Bring your data.</em></h1>
-          <p className="lede">A founder walks you through the platform with your real Etsy / Shopify / Bambu data. No slides. No salesy framing. Just see if it actually fits.</p>
+          <span className="eyebrow" style={{ marginBottom: 18, display: 'inline-flex' }}>Book a demo</span>
+          <AnimatedHeading as="h1" emphasis={<em>Bring your data.</em>}>25 minutes.</AnimatedHeading>
+          <p className="lede" style={{ marginTop: 18 }}>A founder walks you through the platform with your real Etsy / Shopify / Bambu data. No slides. No salesy framing. Just see if it actually fits.</p>
 
           <div className="demo-perks">
             <div className="perk">
@@ -47,6 +50,9 @@ export default function DemoPage() {
           </div>
         </div>
 
+        </Reveal>
+
+        <Reveal delay={0.15}>
         <div className="booking">
           <div className="booking-head">
             <div className="ava" />
@@ -54,7 +60,7 @@ export default function DemoPage() {
               <h3>Demo with a TapCraft founder</h3>
               <div className="meta">25 min · Google Meet · AEST/AEDT</div>
             </div>
-            <div style={{ marginLeft: 'auto' }}><span className="chip"><span className="dot" />Avg response 18 min</span></div>
+            <div style={{ marginLeft: 'auto' }}><span className="chip">Avg response 18 min</span></div>
           </div>
 
           <div className="booking-body">
@@ -126,6 +132,7 @@ export default function DemoPage() {
             <p className="mono" style={{ margin: '4px 0 0', color: 'var(--muted)', fontSize: '11px', textAlign: 'center' }}>By booking you agree to TapCraft&apos;s privacy policy. We never share your details.</p>
           </div>
         </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,19 +1,26 @@
 import Link from 'next/link';
+import PageHero from '@/components/shared/PageHero';
+import Reveal from '@/components/shared/Reveal';
 
 export const metadata = {
   title: 'Sample kits — TapCraft',
-  description: 'A box of real units on your desk in 5 days.',
+  description: 'A box of real units on your desk in 5 days. Free for ICP-fit (work email match).',
 };
 
 export default function SamplesPage() {
   return (
-    <section className="sm">
-      <div className="wrap">
-        <span className="eyebrow"><span className="dot" />Sample kits</span>
-        <h1 className="display">A box of <em>real units</em> on your desk in 5 days.</h1>
-        <p className="lede" style={{ marginTop: '18px' }}>Pick the kit that matches your use case. Each ships with a printed care card and a personalised QR linking to a vertical case study.</p>
-
-        <div className="kit-grid">
+    <>
+      <PageHero
+        eyebrow="Sample kits"
+        heading="A box of real units"
+        emphasis={<>on your desk in <em className="serif-em">5 days.</em></>}
+        lede="Pick the kit that matches your use case. Each ships with a printed care card and a personalised QR linking to a vertical case study."
+        tight
+      />
+      <section className="sm section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <Reveal>
+          <div className="kit-grid">
           <div className="kit active">
             <div className="img placeholder placeholder--ink"><span className="label">[ Events kit ]</span></div>
             <div className="body">
@@ -48,6 +55,9 @@ export default function SamplesPage() {
           </div>
         </div>
 
+        </Reveal>
+
+        <Reveal>
         <div className="form-grid">
           <div className="form">
             <h3 style={{ marginBottom: '18px' }}>Where should we send it?</h3>
@@ -108,7 +118,9 @@ export default function SamplesPage() {
             </div>
           </aside>
         </div>
+        </Reveal>
       </div>
     </section>
+    </>
   );
 }

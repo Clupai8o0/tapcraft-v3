@@ -44,7 +44,7 @@ export default function Verticals() {
     <section className="section">
       <div className="wrap">
         <div className="max-w-2xl">
-          <span className="eyebrow"><span className="dot" />Built for</span>
+          <span className="eyebrow">Built for</span>
           <h2 className="h1 balance" style={{ marginTop: 14 }}>
             Four industries that <em className="serif-em">already get it.</em>
           </h2>

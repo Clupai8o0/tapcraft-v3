@@ -50,7 +50,7 @@ export default function Showcase() {
       <div className="wrap">
         <div className="flex justify-between items-end flex-wrap gap-6">
           <div className="max-w-2xl">
-            <span className="eyebrow"><span className="dot" />The work</span>
+            <span className="eyebrow">The work</span>
             <h2 className="h1 balance" style={{ marginTop: 14 }}>
               Real clients. <em className="serif-em">Measurable lift.</em>
             </h2>

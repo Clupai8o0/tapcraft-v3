@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Reveal from '@/components/shared/Reveal';
 
 export function generateStaticParams() {
   return [{ slug: 'keychains' }];
@@ -24,6 +25,7 @@ export default async function ShowcaseSlugPage({ params }: { params: Promise<{ s
         </div>
 
         <div className="pdp-grid">
+          <Reveal>
           <div className="pdp-gallery">
             <div className="main placeholder placeholder--ink"><span className="label">[ keychain hero · onyx ]</span></div>
             <div className="thumb placeholder"><span className="label">[ side ]</span></div>
@@ -31,9 +33,11 @@ export default async function ShowcaseSlugPage({ params }: { params: Promise<{ s
             <div className="thumb placeholder"><span className="label">[ packaging ]</span></div>
             <div className="thumb placeholder placeholder--ink"><span className="label">[ on a bag ]</span></div>
           </div>
+          </Reveal>
 
+          <Reveal delay={0.12}>
           <div>
-            <span className="eyebrow"><span className="dot" />NFC keychain</span>
+            <span className="eyebrow">NFC keychain</span>
             <h1 style={{ marginTop: '14px' }}>Onyx PLA · NFC keychain</h1>
             <p className="lede">Bespoke 3D-printed keychains in matte black PLA, NTAG215 chip, programmed to your URL. From a 50-piece corporate run to a 5,000-piece festival drop.</p>
 
@@ -94,6 +98,7 @@ export default async function ShowcaseSlugPage({ params }: { params: Promise<{ s
               <div className="row"><span className="k">Made in</span><span>Brunswick VIC, AU</span></div>
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

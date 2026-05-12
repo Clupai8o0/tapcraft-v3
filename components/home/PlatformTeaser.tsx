@@ -8,7 +8,7 @@ export default function PlatformTeaser() {
         <div className="dev-block">
           <div>
             <span className="eyebrow" style={{ color: '#B8B8C0' }}>
-              <span className="dot" />
+              
               The in-house toolchain
             </span>
             <h2 className="h1 balance" style={{ marginTop: 14, maxWidth: '22ch' }}>
@@ -40,7 +40,7 @@ export default function PlatformTeaser() {
               <Link
                 className="btn"
                 style={{ background: 'transparent', color: 'var(--ink-2)', border: '1px solid var(--line)' }}
-                href="/pricing"
+                href="/platform/pricing"
               >
                 Pricing &amp; tiers
               </Link>

@@ -37,7 +37,7 @@ export default function FAQ() {
     <section className="section">
       <div className="wrap">
         <div className="max-w-2xl">
-          <span className="eyebrow"><span className="dot" />Common questions</span>
+          <span className="eyebrow">Common questions</span>
           <h2 className="h1 balance" style={{ marginTop: 14 }}>
             Before you ask.
           </h2>

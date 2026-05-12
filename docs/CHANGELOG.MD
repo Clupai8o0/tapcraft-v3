@@ -6,6 +6,57 @@ For semantic versioned releases, prefix with `## v0.X.0 — YYYY-MM-DD`.
 
 ---
 
+## 2026-05-12 — Full site build-out (overnight run)
+
+Site is now complete end-to-end. 31 routes, production build passes.
+
+**Design system primitives** (`components/shared/`)
+- `PageHero` — eyebrow + character-staggered display heading + lede + actions
+- `Reveal` — viewport-triggered fade+rise wrapper (whileInView)
+- `AnimatedHeading` — h1/h2/h3 with per-char stagger
+- `Section`, `LegalLayout` — consistent padding + animation wrappers
+- `lib/motion.ts` — single source of truth for easings, durations, variants
+
+**Migrated existing pages** — about, contact, customise, demo, platform, pricing, samples, showcase, showcase/[slug], signup, solutions/events. PageHero on every top-of-page intro. Reveal wrappers on every major content section. All stale dot-eyebrow markup stripped.
+
+**New pages built**
+- `/process` — the seven-stage production timeline (was missing entirely)
+- `/solutions/real-estate` — agent-focused vertical landing
+- `/solutions/hospitality` — venues / cafés / multi-venue groups
+- `/legal/privacy` — AU Privacy Act compliant draft
+- `/legal/terms` — services + IP boilerplate
+- `/legal/refunds` — custom-work refund policy
+- `/blog` — index page with tag filtering
+- `/blog/[slug]` — article template with JSON-LD Article schema, related posts
+- `/not-found` (404) — in design system
+
+**Blog system** (`lib/blog/`)
+- `.md` posts with `gray-matter` + `marked` + `reading-time`
+- Zod-validated frontmatter (`lib/blog/schema.ts`) — build fails on invalid post
+- Related-posts by tag overlap
+- 5 seed posts in TapCraft voice (AU English, em-dashes no spaces): event lanyards, NFC vs QR for real estate, Cup Week case study, NFC keychain cost transparency, 3D-printing vs moulding, recycled PLA supply chain
+
+**Global SEO** (`lib/seo.ts`)
+- `app/sitemap.ts` (dynamic, includes blog posts)
+- `app/robots.ts`
+- `app/opengraph-image.tsx` — Next-generated 1200×630 default OG card
+- Organisation + LocalBusiness JSON-LD in root layout
+- Article JSON-LD per blog post
+- Per-page metadata template (title, OG, Twitter, canonical, AU locale)
+
+**Brevo wiring** (stubbed per request)
+- `lib/brevo/client.ts` — `sendBrevoEmail` + `addBrevoContact`. Falls back to `console.warn` when API keys aren't set so submissions aren't silently dropped. Real Brevo REST calls when env vars are present.
+- `app/api/contact/route.ts`, `/api/quote/route.ts`, `/api/newsletter/route.ts` — Zod-validated, honeypot-protected
+- Required env vars: `BREVO_CONTACT_API_KEY`, `BREVO_QUOTE_API_KEY`, `BREVO_NEWSLETTER_API_KEY`, `BREVO_FROM_EMAIL`, `BREVO_TO_EMAIL`
+
+**Nav + Footer**
+- Nav surfaces Blog + Pricing
+- Footer links real legal pages, real solutions pages, the new blog, the new process page
+
+Verification: `npx tsc --noEmit` clean, `next build` succeeds (31 routes), no warm-hex residue.
+
+---
+
 ## 2026-05-11 — Homepage v3 + Encoder app mention
 
 Full homepage revamp, studio-led pitch, dark hardware aesthetic. New section components under `components/home/*`, R3F scenes under `components/three/*`, shadcn-style primitives under `components/ui/*`.

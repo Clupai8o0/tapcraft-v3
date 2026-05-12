@@ -16,7 +16,7 @@ export default function TrustBar() {
         <div className="ticker-track">
           {[...TICKER_ITEMS, ...TICKER_ITEMS].map((t, i) => (
             <span key={i} className="ticker-item">
-              <span className="dot" />
+              
               {t}
             </span>
           ))}

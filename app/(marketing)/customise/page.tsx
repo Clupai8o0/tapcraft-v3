@@ -1,20 +1,26 @@
 import Link from 'next/link';
+import PageHero from '@/components/shared/PageHero';
+import Reveal from '@/components/shared/Reveal';
 
 export const metadata = {
   title: 'Get a quote — TapCraft',
-  description: 'Tell us what you\'re making. The price tile updates as you choose. PDF quote in your inbox in 60 seconds.',
+  description: 'Tell us what you\'re making. Live price tile, PDF quote in your inbox in 60 seconds, founder follow-up within 24h.',
 };
 
 export default function CustomisePage() {
   return (
-    <section className="qt">
+    <>
+      <PageHero
+        eyebrow="Get a quote"
+        heading="Tell us what you’re"
+        emphasis={<em>making.</em>}
+        lede="Pick a product, material, chip, and quantity. The price tile updates as you choose. PDF quote in your inbox in 60 seconds — founder follow-up within 24h."
+        tight
+      />
+      <section className="qt section" style={{ paddingTop: 0 }}>
       <div className="wrap">
-        <span className="eyebrow"><span className="dot" />Custom quote</span>
-        <h1 className="display">Tell us what you&apos;re <em>making.</em></h1>
-        <p className="lede" style={{ marginTop: '18px' }}>The price tile updates as you choose. PDF quote in your inbox in 60 seconds.</p>
-
         <div className="qt-grid" style={{ marginTop: '24px' }}>
-          <div>
+          <Reveal>
             <div className="steps">
               <div className="step-pill done"><span className="n">✓</span> Product</div>
               <div className="step-pill active"><span className="n">2</span> Specs</div>
@@ -84,11 +90,12 @@ export default function CustomisePage() {
                 <div className="check active"><span className="box">✓</span> Send physical sample first</div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
+          <Reveal delay={0.12}>
           <aside>
             <div className="price-tile">
-              <span className="live"><span className="dot" />Live estimate</span>
+              <span className="live">Live estimate</span>
               <div className="est-range">$4,500<small> – $4,800</small></div>
               <div className="est-per">~ $9 / unit · 500 units</div>
 
@@ -124,8 +131,10 @@ export default function CustomisePage() {
               <p className="mono" style={{ color: 'var(--muted)', fontSize: '10.5px', textAlign: 'center', margin: '14px 0 0' }}>Sent within 60 seconds · A founder will follow up within 24h.</p>
             </div>
           </aside>
+          </Reveal>
         </div>
       </div>
     </section>
+    </>
   );
 }

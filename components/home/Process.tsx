@@ -50,7 +50,7 @@ export default function Process() {
     <section className="section" ref={ref}>
       <div className="wrap">
         <div className="max-w-2xl mb-12">
-          <span className="eyebrow"><span className="dot" />How it runs</span>
+          <span className="eyebrow">How it runs</span>
           <h2 className="h1 balance" style={{ marginTop: 14 }}>
             From brief to <em className="serif-em">in-hand</em> in seven days.
           </h2>

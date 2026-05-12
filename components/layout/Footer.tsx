@@ -41,11 +41,11 @@ export default function Footer() {
           <div>
             <h5>Solutions</h5>
             <ul>
-              <li><Link href="/solutions/events">Events</Link></li>
-              <li><Link href="#">Real estate</Link></li>
-              <li><Link href="#">Hospitality</Link></li>
-              <li><Link href="#">Retail</Link></li>
-              <li><Link href="#">Print-on-demand</Link></li>
+              <li><Link href="/solutions/events">Events &amp; conferences</Link></li>
+              <li><Link href="/solutions/real-estate">Real estate</Link></li>
+              <li><Link href="/solutions/hospitality">Hospitality &amp; venues</Link></li>
+              <li><Link href="/showcase">Retail</Link></li>
+              <li><Link href="/customise">Custom run</Link></li>
             </ul>
           </div>
 
@@ -75,11 +75,13 @@ export default function Footer() {
           <div>
             <h5>Resources</h5>
             <ul>
-              <li><Link href="#">Blog</Link></li>
-              <li><Link href="#">Guides</Link></li>
-              <li><Link href="#">Free tools</Link></li>
-              <li><Link href="#">Changelog</Link></li>
-              <li><Link href="#">Open source</Link></li>
+              <li><Link href="/blog">Field notes</Link></li>
+              <li><Link href="/process">How we make it</Link></li>
+              <li><Link href="/platform/pricing">Platform pricing</Link></li>
+              <li><Link href="/samples">Sample kits</Link></li>
+              <li><Link href="/legal/privacy">Privacy</Link></li>
+              <li><Link href="/legal/terms">Terms</Link></li>
+              <li><Link href="/legal/refunds">Refunds</Link></li>
             </ul>
           </div>
         </div>
@@ -87,10 +89,10 @@ export default function Footer() {
         <div className="footer-bottom">
           <div>© TapCraft Pty Ltd · Naarm/Melbourne · ABN 88 612 944 301</div>
           <div style={{ display: 'flex', gap: '18px' }}>
-            <Link href="#">Privacy</Link>
-            <Link href="#">Terms</Link>
-            <Link href="#">Trust</Link>
-            <Link href="/showcase">Shop the catalogue →</Link>
+            <Link href="/legal/privacy">Privacy</Link>
+            <Link href="/legal/terms">Terms</Link>
+            <Link href="/legal/refunds">Refunds</Link>
+            <Link href="/showcase">See the work →</Link>
           </div>
         </div>
       </div>

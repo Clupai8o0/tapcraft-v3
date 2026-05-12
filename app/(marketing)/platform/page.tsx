@@ -1,24 +1,31 @@
 import Link from 'next/link';
+import PageHero from '@/components/shared/PageHero';
+import Reveal from '@/components/shared/Reveal';
 
 export const metadata = {
   title: 'Platform — TapCraft',
-  description: 'A single workspace for your store, custom orders, printers, NFC encoder, and dev team.',
+  description: 'A single workspace for your store, custom orders, printers, NFC encoder, and dev team. Everything is an API.',
 };
 
 export default function PlatformPage() {
   return (
     <>
-      <section className="platform-hero">
-        <div className="wrap">
-          <span className="eyebrow"><span className="dot" />The Platform</span>
-          <h1 className="display" style={{ marginTop: '18px' }}>The <em>headless CMS</em> for 3D-printed NFC products.</h1>
-          <p className="lede">A single workspace for your store, your custom orders, your printers, your NFC encoder, and your dev team. Everything is an API. Everything writes back to one record.</p>
-          <div className="actions">
+      <PageHero
+        eyebrow="The Platform"
+        heading="The headless CMS"
+        emphasis={<>for <em>3D-printed NFC</em> products.</>}
+        lede="A single workspace for your store, your custom orders, your printers, your NFC encoder, and your dev team. Everything is an API. Everything writes back to one record."
+        actions={
+          <>
             <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arrow">→</span></Link>
             <Link className="btn btn--soft btn--lg" href="/signup">Start free trial</Link>
-            <Link className="btn" style={{ border: '1px solid var(--line)' }} href="#">Read the docs <span className="arrow">→</span></Link>
-          </div>
-
+            <Link className="btn btn--ghost btn--lg" href="/platform/pricing">See pricing</Link>
+          </>
+        }
+      />
+      <section className="platform-hero section" style={{ paddingTop: 0, borderTop: 0 }}>
+        <div className="wrap">
+          <Reveal>
           <div className="canvas-mock">
             <div className="canvas-head">
               <div className="l">
@@ -55,9 +62,9 @@ export default function PlatformPage() {
                     <h3 className="h3" style={{ marginTop: '4px' }}>214 active</h3>
                   </div>
                   <div style={{ display: 'flex', gap: '8px' }}>
-                    <span className="chip"><span className="dot" />Print queue · 12</span>
-                    <span className="chip"><span className="dot" />Encoding · 3</span>
-                    <span className="chip"><span className="dot" />Shipping · 28</span>
+                    <span className="chip">Print queue · 12</span>
+                    <span className="chip">Encoding · 3</span>
+                    <span className="chip">Shipping · 28</span>
                   </div>
                 </div>
                 <table className="table">
@@ -103,14 +110,18 @@ export default function PlatformPage() {
               </aside>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 6 PILLARS */}
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow"><span className="dot" />Capabilities</span>
+          <Reveal>
+          <span className="eyebrow">Capabilities</span>
           <h2 className="h1" style={{ marginTop: '14px', maxWidth: '22ch' }}>Six surfaces. <em className="serif-em">One source of truth.</em></h2>
+          </Reveal>
+          <Reveal delay={0.08}>
           <div className="pillars-grid">
             <div className="pillar-deep">
               <div className="num">/01</div>
@@ -149,13 +160,15 @@ export default function PlatformPage() {
               <div className="features"><div>REST + GraphQL + webhooks</div><div>TypeScript + Python SDK</div><div>MIT-licensed CLI</div></div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* WORKFLOW NARRATIVE */}
       <section className="section" style={{ borderTop: 0, paddingTop: 0 }}>
         <div className="wrap">
-          <span className="eyebrow"><span className="dot" />Workflow</span>
+          <Reveal>
+          <span className="eyebrow">Workflow</span>
           <h2 className="h1" style={{ marginTop: '14px', maxWidth: '22ch' }}>Configure → Quote → Print → Encode → Ship.</h2>
           <p className="lede">Every step writes back to one order record. No reconciliation, no duplicate keying, no spreadsheet of last resort.</p>
           <div className="narrative">
@@ -192,13 +205,15 @@ export default function PlatformPage() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* DEV BLOCK */}
       <section className="section">
         <div className="wrap">
-          <span className="eyebrow"><span className="dot" />Built for builders</span>
+          <Reveal>
+          <span className="eyebrow">Built for builders</span>
           <h2 className="h1" style={{ marginTop: '14px', maxWidth: '18ch' }}>If you can `npm install`, you can ship.</h2>
           <div className="dev-grid">
             <div>
@@ -230,17 +245,20 @@ export default function PlatformPage() {
               <span className="ok">✓</span> Live at northbound.studio
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* FINAL CTA */}
       <section className="section final-cta" style={{ textAlign: 'center', borderTop: 0 }}>
         <div className="wrap">
-          <h2 className="display" style={{ maxWidth: '18ch', margin: '0 auto' }}><em>Less reconciliation.</em><br />More shipping.</h2>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '36px', flexWrap: 'wrap' }}>
-            <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arrow">→</span></Link>
-            <Link className="btn btn--soft btn--lg" href="/signup">Start free trial</Link>
-          </div>
+          <Reveal>
+            <h2 className="display" style={{ maxWidth: '18ch', margin: '0 auto' }}><em>Less reconciliation.</em><br />More shipping.</h2>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '36px', flexWrap: 'wrap' }}>
+              <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arrow">→</span></Link>
+              <Link className="btn btn--soft btn--lg" href="/signup">Start free trial</Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

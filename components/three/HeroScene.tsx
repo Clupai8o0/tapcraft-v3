@@ -10,6 +10,7 @@ import {
 } from '@react-three/drei';
 import { Suspense, useRef } from 'react';
 import type { Group, Mesh } from 'three';
+import { useThreeProfile, SAFE_GL } from '@/lib/three-safari';
 
 function Keychain() {
   const group = useRef<Group>(null);
@@ -153,28 +154,40 @@ function Particles() {
 }
 
 export default function HeroScene() {
+  const { dpr, shadows, useHDR, prefersReducedMotion, isMobile } = useThreeProfile();
+
   return (
     <Canvas
-      shadows
-      dpr={[1, 2]}
-      camera={{ position: [0, 0.3, 4.2], fov: 35 }}
-      gl={{ antialias: true, alpha: true }}
-      style={{ background: 'transparent' }}
+      shadows={shadows}
+      dpr={dpr}
+      camera={{
+        position: isMobile ? [0, 0.2, 5.0] : [0, 0.3, 4.2],
+        fov: isMobile ? 42 : 35,
+      }}
+      gl={SAFE_GL}
+      style={{ background: 'transparent', touchAction: 'pan-y' }}
+      frameloop={prefersReducedMotion ? 'demand' : 'always'}
     >
       <Suspense fallback={null}>
-        <ambientLight intensity={0.45} />
+        <ambientLight intensity={useHDR ? 0.45 : 0.85} />
         <directionalLight
           position={[3, 4, 4]}
           intensity={1.4}
-          castShadow
-          shadow-mapSize={[1024, 1024]}
+          castShadow={shadows}
+          shadow-mapSize={shadows ? [1024, 1024] : undefined}
         />
         <directionalLight position={[-3, 2, -2]} intensity={0.5} color="#60a5fa" />
-        <spotLight position={[0, 5, 0]} intensity={0.6} angle={0.6} penumbra={1} castShadow />
+        <spotLight
+          position={[0, 5, 0]}
+          intensity={0.6}
+          angle={0.6}
+          penumbra={1}
+          castShadow={shadows}
+        />
 
-        <PulseRings />
+        {!prefersReducedMotion && <PulseRings />}
         <Keychain />
-        <Particles />
+        {!isMobile && !prefersReducedMotion && <Particles />}
 
         <ContactShadows
           position={[0, -1.0, 0]}
@@ -184,7 +197,7 @@ export default function HeroScene() {
           far={2.4}
           color="#000"
         />
-        <Environment preset="city" />
+        {useHDR && <Environment preset="city" />}
       </Suspense>
     </Canvas>
   );

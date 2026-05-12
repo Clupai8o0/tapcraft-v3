@@ -4,6 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, Float, RoundedBox, ContactShadows } from '@react-three/drei';
 import { Suspense, useRef } from 'react';
 import type { Group } from 'three';
+import { useThreeProfile, SAFE_GL } from '@/lib/three-safari';
 
 type Variant = 'keychain' | 'card' | 'lanyard' | 'badge';
 
@@ -62,20 +63,26 @@ function Body({ variant, accent = '#3b82f6' }: ProductObjectProps) {
 }
 
 export default function ProductObject({ variant, accent }: ProductObjectProps) {
+  const { dpr, shadows, useHDR, prefersReducedMotion, isMobile } = useThreeProfile();
   return (
     <Canvas
-      dpr={[1, 2]}
-      camera={{ position: [0, 0.1, 3.4], fov: 35 }}
-      gl={{ antialias: true, alpha: true }}
-      style={{ background: 'transparent' }}
+      shadows={shadows}
+      dpr={dpr}
+      camera={{
+        position: isMobile ? [0, 0.1, 4.0] : [0, 0.1, 3.4],
+        fov: isMobile ? 42 : 35,
+      }}
+      gl={SAFE_GL}
+      style={{ background: 'transparent', touchAction: 'pan-y' }}
+      frameloop={prefersReducedMotion ? 'demand' : 'always'}
     >
       <Suspense fallback={null}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[3, 4, 4]} intensity={1.2} castShadow />
+        <ambientLight intensity={useHDR ? 0.5 : 0.9} />
+        <directionalLight position={[3, 4, 4]} intensity={1.2} castShadow={shadows} />
         <directionalLight position={[-2, 1, -2]} intensity={0.4} color="#60a5fa" />
         <Body variant={variant} accent={accent} />
         <ContactShadows position={[0, -0.85, 0]} opacity={0.45} scale={4} blur={2.4} color="#000" />
-        <Environment preset="city" />
+        {useHDR && <Environment preset="city" />}
       </Suspense>
     </Canvas>
   );

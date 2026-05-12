@@ -57,7 +57,7 @@ export default function Products() {
       <div className="wrap relative">
         <div className="flex justify-between items-end flex-wrap gap-6">
           <div className="max-w-2xl">
-            <span className="eyebrow"><span className="dot" />The objects</span>
+            <span className="eyebrow">The objects</span>
             <h2 className="h1 balance" style={{ marginTop: 14 }}>
               Four formats. <em className="serif-em">Same impact.</em>
             </h2>

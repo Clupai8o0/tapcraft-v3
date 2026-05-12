@@ -36,7 +36,7 @@ export default function Transformation() {
     <section className="section spotlight">
       <div className="wrap relative">
         <div className="max-w-2xl">
-          <span className="eyebrow"><span className="dot" />The transformation</span>
+          <span className="eyebrow">The transformation</span>
           <h2 className="h1 balance" style={{ marginTop: 14 }}>
             One object. Three steps. <em className="serif-em">A lead in your CRM.</em>
           </h2>

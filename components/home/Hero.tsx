@@ -77,7 +77,7 @@ export default function Hero() {
             className="hero-actions"
           >
             <Button asChild size="xl" variant="primary">
-              <Link href="#quote">
+              <Link href="/customise">
                 Get a quote
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -116,8 +116,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
-            className="float-chip"
-            style={{ right: '-14px', top: '12%' }}
+            className="float-chip absolute right-2 top-3 sm:right-[-14px] sm:top-[12%]"
           >
             <div>
               <div className="num">12,847</div>
@@ -130,7 +129,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1.25 }}
-            className="absolute left-[-14px] bottom-[12%] flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--paper)] px-3 py-2 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]"
+            className="absolute left-2 bottom-3 sm:left-[-14px] sm:bottom-[12%] flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--paper)] px-3 py-2 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--positive)] opacity-75" />

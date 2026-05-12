@@ -25,7 +25,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.5 }}
           className="eyebrow"
         >
-          <span className="dot" />
+          
           Ready when you are
         </motion.span>
 
