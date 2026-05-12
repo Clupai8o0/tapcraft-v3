@@ -26,8 +26,8 @@ export default function Hero() {
         }}
       />
 
-      <div className="wrap hero-grid relative">
-        <div>
+      <div className="wrap relative flex flex-col items-center text-center">
+        <div className="max-w-[1040px]">
           <h1 className="display balance" aria-label="The business card is dead. Replace it with a tap.">
             <span aria-hidden className="inline-block">
               {heroChars.map((c, i) => (
@@ -63,7 +63,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
             className="lede"
-            style={{ marginTop: '28px' }}
+            style={{ marginTop: '28px', marginInline: 'auto', maxWidth: '72ch' }}
           >
             We design and 3D-print custom NFC keychains, lanyards, and badges that turn a handshake into
             a lead in your CRM. Bespoke, branded, made in Melbourne — and measurably better than a card
@@ -75,6 +75,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
             className="hero-actions"
+            style={{ justifyContent: 'center' }}
           >
             <Button asChild size="xl" variant="primary">
               <Link href="/customise">
@@ -94,6 +95,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
             className="hero-bullets"
+            style={{ justifyContent: 'center' }}
           >
             <li><span className="tick">✓</span> 7-day turnaround</li>
             <li><span className="tick">✓</span> Free design review</li>
@@ -105,9 +107,10 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          style={{ position: 'relative' }}
+          className="relative w-full"
+          style={{ marginTop: 'clamp(48px, 6vw, 80px)', maxWidth: '1080px' }}
         >
-          <div className="hero-scene">
+          <div className="hero-scene" style={{ aspectRatio: '16 / 10' }}>
             <HeroScene />
           </div>
 
@@ -116,7 +119,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
-            className="float-chip absolute right-2 top-3 sm:right-[-14px] sm:top-[12%]"
+            className="float-chip absolute right-2 top-3 sm:right-[-14px] sm:top-[8%]"
           >
             <div>
               <div className="num">12,847</div>
@@ -129,7 +132,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1.25 }}
-            className="absolute left-2 bottom-3 sm:left-[-14px] sm:bottom-[12%] flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--paper)] px-3 py-2 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]"
+            className="absolute left-2 bottom-3 sm:left-[-14px] sm:bottom-[10%] flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--paper)] px-3 py-2 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--positive)] opacity-75" />

@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Terminal } from 'lucide-react';
 
@@ -5,32 +8,37 @@ export default function PlatformTeaser() {
   return (
     <section className="section">
       <div className="wrap">
-        <div className="dev-block">
+        <motion.div
+          className="dev-block"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div>
-            <span className="eyebrow" style={{ color: '#B8B8C0' }}>
-              
+            <span className="eyebrow" style={{ color: 'var(--ink-2)' }}>
               The in-house toolchain
             </span>
             <h2 className="h1 balance" style={{ marginTop: 14, maxWidth: '22ch' }}>
               We built our own stack. <em className="serif-em">Now we&apos;re opening it up.</em>
             </h2>
-            <p style={{ marginTop: 18, color: '#B8B8C0', maxWidth: '52ch', fontSize: '15.5px', lineHeight: 1.55 }}>
+            <p style={{ marginTop: 18, color: 'var(--ink-2)', maxWidth: '52ch', fontSize: '15.5px', lineHeight: 1.55 }}>
               The software that runs Brunswick &mdash; production queue, custom-order intake, configurator,
               and our own NFC encoder app (because NFC Tools wasn&apos;t cutting it) &mdash; is becoming
               a separate platform for other studios and agencies that ship NFC at scale.
             </p>
-            <ul style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: '10px', color: '#B8B8C0', fontSize: '14px', listStyle: 'none', padding: 0 }}>
+            <ul style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: '10px', color: 'var(--ink-2)', fontSize: '14px', listStyle: 'none', padding: 0 }}>
               <li style={{ display: 'flex', gap: '10px', alignItems: 'baseline' }}>
                 <span style={{ color: 'var(--accent-ink)', fontFamily: 'var(--font-mono)', fontSize: '11px' }}>→</span>
-                <span><strong style={{ color: '#F5F5F7', fontWeight: 500 }}>TapCraft Encoder</strong> · batch NFC programming, audit log, per-tag analytics. Replaces NFC Tools in our studio.</span>
+                <span><strong style={{ color: 'var(--ink)', fontWeight: 500 }}>TapCraft Encoder</strong> · batch NFC programming, audit log, per-tag analytics. Replaces NFC Tools in our studio.</span>
               </li>
               <li style={{ display: 'flex', gap: '10px', alignItems: 'baseline' }}>
                 <span style={{ color: 'var(--accent-ink)', fontFamily: 'var(--font-mono)', fontSize: '11px' }}>→</span>
-                <span><strong style={{ color: '#F5F5F7', fontWeight: 500 }}>Configurator</strong> · the 3D customise tool, embeddable on your own site.</span>
+                <span><strong style={{ color: 'var(--ink)', fontWeight: 500 }}>Configurator</strong> · the 3D customise tool, embeddable on your own site.</span>
               </li>
               <li style={{ display: 'flex', gap: '10px', alignItems: 'baseline' }}>
                 <span style={{ color: 'var(--accent-ink)', fontFamily: 'var(--font-mono)', fontSize: '11px' }}>→</span>
-                <span><strong style={{ color: '#F5F5F7', fontWeight: 500 }}>Production queue</strong> · custom-order intake to print-farm dispatch in one place.</span>
+                <span><strong style={{ color: 'var(--ink)', fontWeight: 500 }}>Production queue</strong> · custom-order intake to print-farm dispatch in one place.</span>
               </li>
             </ul>
             <div style={{ marginTop: 28, display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -61,7 +69,7 @@ export default function PlatformTeaser() {
               <span className="ok">✓</span> Audit log → <span className="dim">batch-2287.csv</span>
             </pre>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 
@@ -26,6 +27,7 @@ const NAV_LINKS: NavLink[] = [
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -86,7 +88,12 @@ export default function Nav() {
           {NAV_LINKS.map((link) => {
             if ('href' in link) {
               return (
-                <Link key={link.label} className="nav-link" href={link.href}>
+                <Link
+                  key={link.label}
+                  className={`nav-link${pathname === link.href ? ' active' : ''}`}
+                  href={link.href}
+                  aria-current={pathname === link.href ? 'page' : undefined}
+                >
                   {link.label}
                 </Link>
               );
@@ -101,7 +108,7 @@ export default function Nav() {
               >
                 <button
                   type="button"
-                  className="nav-link"
+                  className={`nav-link${'children' in link && link.children.some((c) => pathname.startsWith(c.href)) ? ' active' : ''}`}
                   aria-haspopup="menu"
                   aria-expanded={isOpen}
                   onClick={() => setOpenMenu(isOpen ? null : link.label)}

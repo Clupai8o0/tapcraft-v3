@@ -141,7 +141,7 @@ function ProcessVisual({ progress }: { progress: ReturnType<typeof useTransform<
           <div className="font-mono text-[12px] text-[var(--ink-2)] grid gap-1.5 max-w-sm mx-auto leading-relaxed">
             <div className="flex justify-between"><span>Printer 04</span><span className="text-[var(--accent)]">running 92%</span></div>
             <div className="flex justify-between"><span>Printer 05</span><span className="text-[var(--accent)]">running 67%</span></div>
-            <div className="flex justify-between"><span>Printer 06</span><span className="text-[oklch(0.78_0.18_145)]">queued</span></div>
+            <div className="flex justify-between"><span>Printer 06</span><span className="text-[var(--positive)]">queued</span></div>
             <div className="flex justify-between"><span>Printer 07</span><span className="text-[var(--muted)]">idle</span></div>
           </div>
         </div>
@@ -160,18 +160,18 @@ function ProcessVisual({ progress }: { progress: ReturnType<typeof useTransform<
               <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--muted)]">
                 TapCraft Encoder
               </span>
-              <span className="font-mono text-[10px] text-[oklch(0.78_0.18_145)] inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.78_0.18_145)]" />
+              <span className="font-mono text-[10px] text-[var(--positive)] inline-flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--positive)]" />
                 connected
               </span>
             </div>
             <div className="p-4 font-mono text-[11px] text-[var(--ink-2)] space-y-1.5">
               <div className="flex justify-between"><span className="text-[var(--muted)]">Batch</span><span>2287 · Belle Property</span></div>
               <div className="flex justify-between"><span className="text-[var(--muted)]">Mode</span><span>per-tag URL</span></div>
-              <div className="flex justify-between"><span className="text-[var(--muted)]">Progress</span><span className="text-[oklch(0.78_0.18_145)]">240 / 240</span></div>
+              <div className="flex justify-between"><span className="text-[var(--muted)]">Progress</span><span className="text-[var(--positive)]">240 / 240</span></div>
               <div className="mt-2 pt-2 border-t border-[var(--line-2)] flex justify-between">
                 <span className="text-[var(--muted)]">Verified</span>
-                <span className="text-[oklch(0.78_0.18_145)]">✓ all good</span>
+                <span className="text-[var(--positive)]">✓ all good</span>
               </div>
             </div>
           </div>

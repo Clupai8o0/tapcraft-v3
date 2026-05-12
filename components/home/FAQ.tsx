@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionContent,
@@ -36,14 +39,26 @@ export default function FAQ() {
   return (
     <section className="section">
       <div className="wrap">
-        <div className="max-w-2xl">
+        <motion.div
+          className="max-w-2xl"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <span className="eyebrow">Common questions</span>
           <h2 className="h1 balance" style={{ marginTop: 14 }}>
             Before you ask.
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="mt-10 rounded-[14px] overflow-hidden border border-[var(--line)] bg-[var(--paper)]">
+        <motion.div
+          className="mt-10 rounded-[14px] overflow-hidden border border-[var(--line)] bg-[var(--paper)]"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        >
           <Accordion type="single" collapsible defaultValue="item-0">
             {FAQS.map((f, i) => (
               <AccordionItem key={f.q} value={`item-${i}`}>
@@ -52,7 +67,7 @@ export default function FAQ() {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

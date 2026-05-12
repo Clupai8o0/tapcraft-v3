@@ -181,6 +181,8 @@
 }
 .nav-link:hover { background: var(--bg-2); color: var(--ink); }
 .nav-link:hover::after { transform: scaleX(1); }
+.nav-link.active { color: var(--ink); }
+.nav-link.active::after { transform: scaleX(1); }
 .nav-link svg { width: 10px; opacity: 0.5; }
 
 /* dropdown */

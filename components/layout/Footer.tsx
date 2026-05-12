@@ -1,10 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="wrap">
+      <motion.div
+        className="wrap"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      >
         <div className="footer-grid">
           <div>
             <Link className="brand" href="/" style={{ color: 'var(--ink)' }}>
@@ -95,7 +104,7 @@ export default function Footer() {
             <Link href="/showcase">See the work →</Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

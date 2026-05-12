@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+
 const PHRASES = [
   'Conversion, reimagined.',
   'Touch beats a tap of glass.',
@@ -7,8 +11,19 @@ const PHRASES = [
 ];
 
 export default function Marquee() {
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const tracks = document.querySelectorAll<HTMLElement>('.marquee-track');
+    const apply = (e: MediaQueryListEvent | MediaQueryList) => {
+      tracks.forEach((t) => { t.style.animationPlayState = e.matches ? 'paused' : 'running'; });
+    };
+    apply(mq);
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
+
   return (
-    <section className="py-24 border-t border-b border-[var(--line)] overflow-hidden">
+    <section className="py-24 border-t border-b border-[var(--line)] overflow-hidden" aria-label="Company highlights">
       <div className="marquee">
         <div className="marquee-track" aria-hidden>
           {PHRASES.map((p, i) => (
