@@ -5,126 +5,44 @@ import {
   Environment,
   Float,
   ContactShadows,
-  Text,
-  RoundedBox,
+  useGLTF,
 } from '@react-three/drei';
-import { Suspense, useRef } from 'react';
+import { Suspense, useRef, useEffect } from 'react';
 import type { Group, Mesh } from 'three';
 import { useThreeProfile, SAFE_GL } from '@/lib/three-safari';
 
+const HERO_MODEL = '/models/hero-keychain-exploded.glb';
+useGLTF.preload(HERO_MODEL);
+
 function Keychain() {
   const group = useRef<Group>(null);
+  const { scene } = useGLTF(HERO_MODEL);
+
+  useEffect(() => {
+    scene.traverse((obj) => {
+      const mesh = obj as Mesh;
+      if (mesh.isMesh) {
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+      }
+    });
+  }, [scene]);
+
   useFrame((state) => {
     if (!group.current) return;
     const t = state.clock.getElapsedTime();
-    group.current.rotation.y = Math.sin(t * 0.35) * 0.45;
+    group.current.rotation.y = t * 0.4;
     group.current.rotation.x = Math.sin(t * 0.5) * 0.08;
   });
 
   return (
     <Float speed={1.2} rotationIntensity={0.25} floatIntensity={0.5} floatingRange={[-0.08, 0.08]}>
-      <group ref={group} position={[0, 0, 0]}>
-        {/* keychain body */}
-        <RoundedBox args={[2.2, 1.4, 0.28]} radius={0.18} smoothness={6} castShadow receiveShadow>
-          <meshPhysicalMaterial
-            color="#141418"
-            metalness={0.4}
-            roughness={0.32}
-            clearcoat={0.6}
-            clearcoatRoughness={0.4}
-          />
-        </RoundedBox>
-
-        {/* subtle inner inset */}
-        <mesh position={[0, 0, 0.145]}>
-          <planeGeometry args={[2.0, 1.22]} />
-          <meshStandardMaterial
-            color="#0A0A0C"
-            metalness={0.1}
-            roughness={0.85}
-          />
-        </mesh>
-
-        {/* NFC zone — glowing chip */}
-        <mesh position={[-0.62, 0.0, 0.16]} castShadow>
-          <boxGeometry args={[0.42, 0.42, 0.02]} />
-          <meshStandardMaterial
-            color="#3b82f6"
-            emissive="#3b82f6"
-            emissiveIntensity={1.8}
-            toneMapped={false}
-          />
-        </mesh>
-
-        {/* glow underneath chip */}
-        <mesh position={[-0.62, 0.0, 0.155]}>
-          <ringGeometry args={[0.24, 0.36, 32]} />
-          <meshBasicMaterial color="#3b82f6" transparent opacity={0.35} toneMapped={false} />
-        </mesh>
-
-        {/* brand text */}
-        <Text
-          position={[0.28, 0.18, 0.16]}
-          fontSize={0.22}
-          color="#F5F5F7"
-          anchorX="left"
-          anchorY="middle"
-          letterSpacing={-0.02}
-        >
-          TapCraft
-        </Text>
-        <Text
-          position={[0.28, -0.12, 0.16]}
-          fontSize={0.085}
-          color="#75757F"
-          anchorX="left"
-          anchorY="middle"
-          letterSpacing={0.04}
-        >
-          NFC · NTAG215
-        </Text>
-
-        {/* ring/loop */}
-        <group position={[-1.32, 0.0, 0]}>
-          <mesh rotation={[Math.PI / 2, 0, 0]} castShadow>
-            <torusGeometry args={[0.22, 0.035, 16, 64]} />
-            <meshStandardMaterial color="#9aa0a6" metalness={0.95} roughness={0.18} />
-          </mesh>
-        </group>
+      {/* GLB is in real-world metres (~40mm disc) — scale ~55x to fill the framing.
+          GLB disc is flat (face up +Z); tip it upright so it faces the camera. */}
+      <group ref={group} scale={55}>
+        <primitive object={scene} rotation={[-Math.PI / 2, 0, 0]} />
       </group>
     </Float>
-  );
-}
-
-function PulseRings() {
-  const rings = useRef<(Mesh | null)[]>([]);
-  useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    rings.current.forEach((m, i) => {
-      if (!m) return;
-      const phase = (t * 0.55 + i * 0.5) % 1.6;
-      const scale = 0.4 + phase * 1.6;
-      m.scale.set(scale, scale, scale);
-      const mat = m.material as { opacity: number };
-      mat.opacity = Math.max(0, 0.55 - phase * 0.4);
-    });
-  });
-
-  return (
-    <group position={[-1.36, 0, 0]}>
-      {[0, 1, 2].map((i) => (
-        <mesh
-          key={i}
-          ref={(el) => {
-            rings.current[i] = el;
-          }}
-          rotation={[Math.PI / 2, 0, 0]}
-        >
-          <ringGeometry args={[0.5, 0.52, 64]} />
-          <meshBasicMaterial color="#60a5fa" transparent opacity={0.5} toneMapped={false} />
-        </mesh>
-      ))}
-    </group>
   );
 }
 
@@ -185,7 +103,6 @@ export default function HeroScene() {
           castShadow={shadows}
         />
 
-        {!prefersReducedMotion && <PulseRings />}
         <Keychain />
         {!isMobile && !prefersReducedMotion && <Particles />}
 

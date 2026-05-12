@@ -14,11 +14,13 @@ export default function TrustBar() {
     <>
       <div className="ticker">
         <div className="ticker-track">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((t, i) => (
-            <span key={i} className="ticker-item">
-              
-              {t}
-            </span>
+          {TICKER_ITEMS.map((t, i) => (
+            <span key={i} className="ticker-item">{t}</span>
+          ))}
+        </div>
+        <div className="ticker-track" aria-hidden>
+          {TICKER_ITEMS.map((t, i) => (
+            <span key={i} className="ticker-item">{t}</span>
           ))}
         </div>
       </div>

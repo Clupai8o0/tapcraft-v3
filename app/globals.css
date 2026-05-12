@@ -1016,6 +1016,7 @@ details.faq-q p { margin: 14px 0 0; color: var(--ink-2); font-size: 15px; line-h
 
 /* ticker — small monospace ticker */
 .ticker {
+  --gap: 36px;
   display: flex; overflow: hidden;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
