@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import SpotlightCard from '@/components/ui/SpotlightCard';
 
 const VERTICALS = [
   {
@@ -58,16 +59,8 @@ export default function Verticals() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Link
-                href={v.href}
-                className="glow-card tilt block p-6 h-full min-h-[260px] flex flex-col justify-between group"
-                onMouseMove={(e) => {
-                  const el = e.currentTarget;
-                  const rect = el.getBoundingClientRect();
-                  el.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-                  el.style.setProperty('--my', `${e.clientY - rect.top}px`);
-                }}
-              >
+              <SpotlightCard className="tilt p-6 h-full min-h-[260px] flex flex-col justify-between group">
+                <Link href={v.href} className="before:absolute before:inset-0 before:z-10" aria-label={v.title} />
                 <div className="font-mono text-[11px] text-[var(--muted)]">{v.n}</div>
                 <div className="space-y-3">
                   <h3 className="text-[26px] leading-[1.05] tracking-tight font-semibold">{v.title}</h3>
@@ -79,7 +72,7 @@ export default function Verticals() {
                 <div className="w-9 h-9 rounded-full border border-[var(--line)] grid place-items-center group-hover:bg-[var(--ink)] group-hover:text-[var(--bg)] group-hover:border-[var(--ink)] transition-colors">
                   <ArrowRight className="h-4 w-4" />
                 </div>
-              </Link>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

@@ -53,6 +53,7 @@ export default function Footer() {
               <li><Link href="/solutions/events">Events &amp; conferences</Link></li>
               <li><Link href="/solutions/real-estate">Real estate</Link></li>
               <li><Link href="/solutions/hospitality">Hospitality &amp; venues</Link></li>
+              <li><Link href="/solutions/agencies">Agencies &amp; studios</Link></li>
               <li><Link href="/showcase">Retail</Link></li>
               <li><Link href="/customise">Custom run</Link></li>
             </ul>

@@ -19,6 +19,7 @@ const NAV_LINKS: NavLink[] = [
       { label: 'Events & conferences', href: '/solutions/events', description: '3,000 badges in six weeks' },
       { label: 'Real estate', href: '/solutions/real-estate', description: 'Tags that double buyer follow-up' },
       { label: 'Hospitality & venues', href: '/solutions/hospitality', description: 'Tap to review, tip, redeem' },
+      { label: 'Agencies & studios', href: '/solutions/agencies', description: 'Leave-behinds that win pitches' },
     ],
   },
   { label: 'Process', href: '/process' },

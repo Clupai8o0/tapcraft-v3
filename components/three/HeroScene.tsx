@@ -11,7 +11,7 @@ import { Suspense, useRef, useEffect } from 'react';
 import type { Group, Mesh } from 'three';
 import { useThreeProfile, SAFE_GL } from '@/lib/three-safari';
 
-const HERO_MODEL = '/models/hero-keychain-exploded.glb';
+const HERO_MODEL = '/models/hero-keychain-tc.glb';
 useGLTF.preload(HERO_MODEL);
 
 function Keychain() {

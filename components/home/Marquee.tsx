@@ -22,20 +22,14 @@ export default function Marquee() {
     return () => mq.removeEventListener('change', apply);
   }, []);
 
+  const items = [...PHRASES, ...PHRASES];
+
   return (
-    <section className="py-24 border-t border-b border-[var(--line)] overflow-hidden" aria-label="Company highlights">
+    <section className="py-24 border-t border-b border-[var(--line)]" aria-label="Company highlights">
       <div className="marquee">
         <div className="marquee-track" aria-hidden>
-          {PHRASES.map((p, i) => (
-            <span key={`a-${i}`} className="marquee-item">
-              {i % 2 === 0 ? <em>{p}</em> : p}
-              <span className="sep" />
-            </span>
-          ))}
-        </div>
-        <div className="marquee-track" aria-hidden>
-          {PHRASES.map((p, i) => (
-            <span key={`b-${i}`} className="marquee-item">
+          {items.map((p, i) => (
+            <span key={i} className="marquee-item">
               {i % 2 === 0 ? <em>{p}</em> : p}
               <span className="sep" />
             </span>

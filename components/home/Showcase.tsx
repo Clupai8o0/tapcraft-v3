@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import SpotlightCard from '@/components/ui/SpotlightCard';
 
 const CASES = [
   {
@@ -75,16 +76,12 @@ export default function Showcase() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Link
-                href={`/showcase/${c.slug}`}
-                className="glow-card tilt block h-full overflow-hidden group"
-                onMouseMove={(e) => {
-                  const el = e.currentTarget;
-                  const rect = el.getBoundingClientRect();
-                  el.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-                  el.style.setProperty('--my', `${e.clientY - rect.top}px`);
-                }}
-              >
+              <SpotlightCard className="tilt h-full overflow-hidden group">
+                <Link
+                  href={`/showcase/${c.slug}`}
+                  className="before:absolute before:inset-0 before:z-10"
+                  aria-label={c.title}
+                />
                 {/* visual block */}
                 <div
                   className="relative aspect-[5/3] overflow-hidden"
@@ -125,7 +122,7 @@ export default function Showcase() {
                     ))}
                   </div>
                 </div>
-              </Link>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

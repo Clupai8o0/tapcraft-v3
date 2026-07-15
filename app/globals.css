@@ -981,25 +981,26 @@ details.faq-q p { margin: 14px 0 0; color: var(--ink-2); font-size: 15px; line-h
 /* marquee */
 .marquee {
   --gap: clamp(28px, 5vw, 56px);
-  display: flex; overflow: hidden;
+  overflow: hidden;
+  padding-block: 0.2em;
   mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
 }
 .marquee-track {
   display: flex; gap: var(--gap);
-  flex-shrink: 0;
-  min-width: 100%;
+  width: max-content;
   animation: marquee 38s linear infinite;
+  will-change: transform;
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(calc(-100% - var(--gap))); }
+  to { transform: translateX(-50%); }
 }
 .marquee-item {
   font-family: var(--font-serif);
   font-size: clamp(36px, 8vw, 120px);
-  line-height: 1;
+  line-height: 1.35;
   letter-spacing: -0.025em;
   color: var(--ink);
   white-space: nowrap;
@@ -1044,13 +1045,12 @@ details.faq-q p { margin: 14px 0 0; color: var(--ink-2); font-size: 15px; line-h
 
 /* tilt card */
 .tilt {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
   transform-style: preserve-3d;
 }
 .tilt:hover {
   transform: translateY(-4px);
   border-color: rgba(242, 237, 227, 0.22);
-  box-shadow: 0 24px 60px -30px rgba(96, 165, 250, 0.35), 0 8px 20px -8px rgba(0,0,0,0.5);
 }
 
 /* glow card */

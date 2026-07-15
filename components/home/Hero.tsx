@@ -16,13 +16,15 @@ const heroChars = 'The business card is dead.'.split('');
 export default function Hero() {
   return (
     <section className="hero relative overflow-hidden">
-      {/* ambient gradient orb */}
+      {/* dot grid fading downward */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full"
+        className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            'radial-gradient(circle, oklch(0.30 0.12 255 / 0.35) 0%, transparent 60%)',
+          backgroundImage: 'radial-gradient(circle, oklch(0.60 0.10 250 / 0.35) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          maskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 75%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 75%)',
         }}
       />
 
